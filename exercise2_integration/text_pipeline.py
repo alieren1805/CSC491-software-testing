@@ -6,7 +6,8 @@ def analyze(text: str) -> dict:
     Integrates tokenizer + sentiment scorer.
     Returns {'words': [...], 'score': int, 'label': 'pos'|'neg'|'neu'}
     """
-    
+    if type(text) != str:
+        raise TypeError
     words = tokenize(text)
     s = score(words)
     if s > 0: label = "pos"
